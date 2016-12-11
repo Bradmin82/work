@@ -26,14 +26,11 @@ Route::get('/', function () {
 })->middleware('web');
 
 Route::group(['middleware' => ['web']], function() {
+	Route::get('blog/{slug}', ['uses' => 'BlogController@getSingle', 'as' => 'blog.single']);
 	Route::get('/', 'PagesController@home');
-
 	Route::get('about', 'PagesController@about');
-
 	Route::get('contact', 'PagesController@contact');
-
 	Route::get('cards', 'CardsController@index');
-
 	Route::resource('posts', 'PostController');
 });	
 
