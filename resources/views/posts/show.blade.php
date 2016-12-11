@@ -16,12 +16,16 @@
 			<div class="well">
 				<div class="row">
 					<dl class="dl-horizontal">
-						<dt>Created At:</dt>
-						<dd>{{ date( 'M j, Y h:iA', strtotime($post->created_at)) }}</dt>
+						<label>Slug:</label>
+						<p><a href="{{ url($post->slug) }}">{{ url($post->slug) }}</a></label>
 					</dl>
 					<dl class="dl-horizontal">
-						<dt>Last Updated:</dt>
-						<dd>{{ date('M j, Y h:ia', strtotime($post->updated_at)) }}</dt>
+						<label>Created At:</label>
+						<p>{{ date( 'M j, Y h:iA', strtotime($post->created_at)) }}</p>
+					</dl>
+					<dl class="dl-horizontal">
+						<label>Last Updated:</label>
+						<p>{{ date('M j, Y h:ia', strtotime($post->updated_at)) }}</p>
 					</dl>
 				</div>
 				<div class="row">
