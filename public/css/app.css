@@ -12,7 +12,7 @@ html {
   -webkit-text-size-adjust: 100%; }
 
 body {
-  margin: 0; }
+  margin: 0; /*background: green!important;*/ }
 
 article,
 aside,
@@ -1056,7 +1056,9 @@ body {
   font-size: 14px;
   line-height: 1.6;
   color: #636b6f;
-  background-color: #f5f8fa; }
+  background-color: #f5f8fa;
+  /*background: grey;*/
+  }
 
 input,
 button,

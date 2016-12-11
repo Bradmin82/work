@@ -10,9 +10,9 @@
 
 <body>
 
-@yield('content')
+	@yield('content')
 
-@yield('footer')
+	@yield('footer')
 
 </body>
 </html>
