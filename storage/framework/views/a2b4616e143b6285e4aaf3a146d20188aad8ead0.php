@@ -21,7 +21,7 @@
             <div class="post">
               <h3><?php echo e($post->title); ?></h3>
               <p><?php echo e(substr($post->body, 0 , 300)); ?><?php echo e(strlen($post->body) > 300 ? "..." : ""); ?></p>
-              <a href="<?php echo e(route('posts.show', $post->id)); ?>" class="btn btn-primary">Read More</a>
+              <a href="<?php echo e(url('blog/' . $post->slug)); ?>" class="btn btn-primary">Read More</a>
             </div>
 
           <hr>
