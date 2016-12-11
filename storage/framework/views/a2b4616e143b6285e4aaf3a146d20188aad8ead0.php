@@ -15,41 +15,30 @@
 
       <div class="row">
         <div class="col-md-8">
-          <div class="post">
-            <h3>Post Title</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis amet tenetur eum, consequuntur assumenda officiis quidem omnis placeat. Sequi ex fugiat reiciendis at eligendi inventore ad, odio magnam velit doloribus...</p>
-            <a href="#" class="btn btn-primary">Read More</a>
-          </div>
+
+          <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getFirstLoop(); ?>
+
+            <div class="post">
+              <h3><?php echo e($post->title); ?></h3>
+              <p><?php echo e(substr($post->body, 0 , 300)); ?><?php echo e(strlen($post->body) > 300 ? "..." : ""); ?></p>
+              <a href="<?php echo e(route('posts.show', $post->id)); ?>" class="btn btn-primary">Read More</a>
+            </div>
 
           <hr>
 
-          <div class="post">
-            <h3>Post Title</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis amet tenetur eum, consequuntur assumenda officiis quidem omnis placeat. Sequi ex fugiat reiciendis at eligendi inventore ad, odio magnam velit doloribus...</p>
-            <a href="#" class="btn btn-primary">Read More</a>
-          </div>
-
-          <hr>
-
-          <div class="post">
-            <h3>Post Title</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis amet tenetur eum, consequuntur assumenda officiis quidem omnis placeat. Sequi ex fugiat reiciendis at eligendi inventore ad, odio magnam velit doloribus...</p>
-            <a href="#" class="btn btn-primary">Read More</a>
-          </div>
-
-          <hr>
-
-          <div class="post">
-            <h3>Post Title</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis amet tenetur eum, consequuntur assumenda officiis quidem omnis placeat. Sequi ex fugiat reiciendis at eligendi inventore ad, odio magnam velit doloribus...</p>
-            <a href="#" class="btn btn-primary">Read More</a>
-          </div>
-
-          <hr>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
         </div>
 
         <div class="col-md-3 col-md-offset-1">
           <h2>Sidebar</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="text-center">
+           <?php echo $posts->links();; ?>
+
+          </div>
         </div>
       </div>
 <?php $__env->stopSection(); ?>

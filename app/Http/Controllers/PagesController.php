@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
 
 class PagesController extends Controller
 {
@@ -15,7 +16,14 @@ class PagesController extends Controller
     }*/
     public function home()
     {
-        return view('welcome');
+        //$posts = Post::orderBy('created_at', 'desc')->limit(4)->get();
+        //return view('welcome')->withPosts($posts);
+
+        //create a variable and store all the blog posts in it
+        $posts = Post::orderBy('id', 'desc')->paginate(10);
+
+        //return a view and pass in the above variable
+        return view('welcome')->withPosts($posts);
     }
     public function about()
     {
